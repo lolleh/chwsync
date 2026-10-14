@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    This Source Code Form is subject to the terms of the Mozilla Public License,
+    v. 2.0. If a copy of the MPL was not distributed with this file, You can
+    obtain one at http://mozilla.org/MPL/2.0/. OpenMRS is also distributed under
+    the terms of the Healthcare Disclaimer located at http://openmrs.org/license.
+
+    Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
+    graphic logo is a trademark of OpenMRS Inc.
+
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		    http://www.springframework.org/schema/context
+		    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!--
+		Merged into the core service context, so both services are reachable through Context.getService.
+		Each is wrapped in the same transaction proxy core services use, which is what binds a Hibernate
+		session for the DAO's native SQL and rolls a half-applied push batch back rather than leaving it
+		part written.
+	-->
+
+	<bean id="chwsyncDao" class="org.openmrs.module.chwsync.api.dao.hibernate.HibernateSyncDao">
+		<property name="sessionFactory" ref="dbSessionFactory"/>
+	</bean>
+
+	<bean id="chwsyncRecordDao" class="org.openmrs.module.chwsync.api.dao.hibernate.HibernateChwSyncRecordDao">
+		<property name="sessionFactory" ref="dbSessionFactory"/>
+	</bean>
+
+	<bean id="chwsyncService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager" ref="transactionManager"/>
+		<property name="target">
+			<bean class="org.openmrs.module.chwsync.api.service.impl.ChwSyncServiceImpl">
+				<property name="syncDao" ref="chwsyncDao"/>
+				<property name="recordDao" ref="chwsyncRecordDao"/>
+			</bean>
+		</property>
+		<property name="preInterceptors" ref="serviceInterceptors"/>
+		<property name="transactionAttributeSource">
+			<bean class="org.springframework.transaction.annotation.AnnotationTransactionAttributeSource"/>
+		</property>
+	</bean>
+
+	<bean parent="serviceContext">
+		<property name="moduleService">
+			<list>
+				<value>org.openmrs.module.chwsync.api.service.ChwSyncService</value>
+				<ref bean="chwsyncService"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="chwsyncDeviceService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager" ref="transactionManager"/>
+		<property name="target">
+			<bean class="org.openmrs.module.chwsync.api.service.impl.ChwSyncDeviceServiceImpl">
+				<property name="dao" ref="chwsyncDao"/>
+			</bean>
+		</property>
+		<property name="preInterceptors" ref="serviceInterceptors"/>
+		<property name="transactionAttributeSource">
+			<bean class="org.springframework.transaction.annotation.AnnotationTransactionAttributeSource"/>
+		</property>
+	</bean>
+
+	<bean parent="serviceContext">
+		<property name="moduleService">
+			<list>
+				<value>org.openmrs.module.chwsync.api.service.ChwSyncDeviceService</value>
+				<ref bean="chwsyncDeviceService"/>
+			</list>
+		</property>
+	</bean>
+
+</beans>

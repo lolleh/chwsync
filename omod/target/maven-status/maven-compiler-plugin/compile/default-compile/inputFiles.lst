@@ -1,0 +1,6 @@
+/home/ubuntu/openmrs/chwsync/omod/src/main/java/org/openmrs/module/chwsync/web/controller/BaseSyncController.java
+/home/ubuntu/openmrs/chwsync/omod/src/main/java/org/openmrs/module/chwsync/web/controller/ChwSyncRestExceptionHandler.java
+/home/ubuntu/openmrs/chwsync/omod/src/main/java/org/openmrs/module/chwsync/web/controller/DeviceController.java
+/home/ubuntu/openmrs/chwsync/omod/src/main/java/org/openmrs/module/chwsync/web/controller/ReferenceController.java
+/home/ubuntu/openmrs/chwsync/omod/src/main/java/org/openmrs/module/chwsync/web/controller/SyncAuthController.java
+/home/ubuntu/openmrs/chwsync/omod/src/main/java/org/openmrs/module/chwsync/web/controller/SyncController.java

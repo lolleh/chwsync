@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Development builds may talk to a plain-HTTP OpenMRS server on the LAN
+  (e.g. http://10.0.2.2:8080 or http://192.168.x.x). Cleartext is enabled
+  globally here; tighten this for production deployments.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

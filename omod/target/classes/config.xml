@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    This Source Code Form is subject to the terms of the Mozilla Public License,
+    v. 2.0. If a copy of the MPL was not distributed with this file, You can
+    obtain one at http://mozilla.org/MPL/2.0/. OpenMRS is also distributed under
+    the terms of the Healthcare Disclaimer located at http://openmrs.org/license.
+
+    Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
+    graphic logo is a trademark of OpenMRS Inc.
+
+-->
+<module configVersion="1.2">
+
+	<id>chwsync</id>
+	<name>CHW Sync</name>
+	<version>1.0.0-SNAPSHOT</version>
+	<package>org.openmrs.module.chwsync</package>
+	<author>OpenMRS</author>
+	<description>Community Health Worker module for OpenMRS. Provides an offline-first, delta-sync
+		REST API over the core patient/encounter/visit schema plus module tables for
+		households, appointments and referrals, and serves a lightweight progressive web
+		app that runs on Android phones and tablets.</description>
+	<activator>org.openmrs.module.chwsync.ChwSyncActivator</activator>
+
+	<require_version>2.5.0</require_version>
+	<!--
+		The event module is how facility-side writes are captured: without it the feed would carry only
+		what devices push, and a patient edited at a clinic would never reach a CHW. Requiring it means
+		the module refuses to start - and says so - rather than starting in a state that silently loses
+		changes. The version is the one this module is built and tested against.
+	-->
+	<require_modules>
+		<require_module version="4.0.0">org.openmrs.event</require_module>
+	</require_modules>
+
+	<!--
+		The REST controllers check these privileges themselves. Core's @Authorized advice is wired into
+		the service context, not the DispatcherServlet context that serves the controllers, so an
+		annotation alone would not be enforced on those endpoints.
+	-->
+	<privilege>
+		<name>Sync CHW Data</name>
+		<description>Grants read and write access to the CHW sync feed. This is the only privilege a community health worker's account needs.</description>
+	</privilege>
+
+	<privilege>
+		<name>Manage CHW Devices</name>
+		<description>Grants device registration and revocation, and access to cross-CHW aggregates. Held by supervisors and administrators.</description>
+	</privilege>
+
+	<!--
+		Every value is optional and falls back to the default in code if absent or unparseable, so a bad
+		setting degrades one bound rather than breaking sync.
+	-->
+	<globalProperty>
+		<property>chwsync.syncPageSize</property>
+		<defaultValue>200</defaultValue>
+		<description>Number of changes returned by a sync pull when the client does not ask for a size</description>
+	</globalProperty>
+
+	<globalProperty>
+		<property>chwsync.syncMaxPageSize</property>
+		<defaultValue>1000</defaultValue>
+		<description>Largest number of changes a single sync pull may return, so one greedy device cannot exhaust server memory</description>
+	</globalProperty>
+
+	<globalProperty>
+		<property>chwsync.syncMaxPushBatch</property>
+		<defaultValue>200</defaultValue>
+		<description>Largest number of changes accepted in a single push batch</description>
+	</globalProperty>
+
+	<globalProperty>
+		<property>chwsync.tokenTtlHours</property>
+		<defaultValue>720</defaultValue>
+		<description>How long a device bearer token stays valid, in hours. Long by default because a CHW may be offline for weeks; revocation, not expiry, is the real control.</description>
+	</globalProperty>
+
+	<globalProperty>
+		<property>chwsync.identifierType</property>
+		<defaultValue></defaultValue>
+		<description>UUID of the patient identifier type used for CHW-assigned patient numbers when a client does not supply an identifier. Empty means let core assign whatever it does today.</description>
+	</globalProperty>
+
+	<messages>
+		<lang>en</lang>
+		<file>messages.properties</file>
+	</messages>
+
+</module>

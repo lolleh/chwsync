@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1792018962269">
+    <module artifactId="chwsync-api" groupId="org.openmrs.module" version="1.0.0-SNAPSHOT"/>
+    <files>
+        <file path="src/main/java/org/openmrs/module/chwsync/ChwSyncActivator.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/ChwSyncConstants.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/api/dao/AbstractChwSyncDao.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/api/dao/ChwSyncRecordDao.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/api/dao/SyncDao.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/api/dao/hibernate/HibernateChwSyncRecordDao.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/api/dao/hibernate/HibernateSyncDao.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/api/dto/AuthDtos.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/api/dto/SyncDtos.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/api/event/ChwSyncChangeEventListener.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/api/model/Appointment.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/api/model/ChwSyncDevice.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/api/model/ClientToken.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/api/model/Household.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/api/model/HouseholdMember.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/api/model/Referral.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/api/model/SyncChange.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/api/security/ChwSyncTokenAuthenticationScheme.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/api/security/ChwSyncTokenCredentials.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/api/service/ChwSyncDeviceService.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/api/service/ChwSyncService.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/api/service/impl/ChwSyncDeviceServiceImpl.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/api/service/impl/ChwSyncServiceImpl.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/api/sync/ChangeOperation.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/api/sync/Json.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/api/sync/SyncEntityType.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/api/sync/codec/EncounterCodec.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/api/sync/codec/PatientCodec.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/api/sync/codec/RecordCodecs.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/api/sync/codec/VisitCodec.java" result="NOOP"/>
+        <file path="src/main/resources/liquibase.xml" result="NOOP"/>
+        <file path="src/main/resources/messages.properties" result="NOOP"/>
+        <file path="src/main/resources/moduleApplicationContext.xml" result="NOOP"/>
+        <file path="src/test/java/org/openmrs/module/chwsync/api/service/impl/ChwSyncDeviceServiceImplTest.java" result="NOOP"/>
+        <file path="src/test/java/org/openmrs/module/chwsync/api/sync/ChangeOperationTest.java" result="NOOP"/>
+        <file path="src/test/java/org/openmrs/module/chwsync/api/sync/JsonTest.java" result="NOOP"/>
+        <file path="src/test/java/org/openmrs/module/chwsync/api/sync/SyncEntityTypeTest.java" result="NOOP"/>
+        <file path="src/test/java/org/openmrs/module/chwsync/api/sync/codec/EncounterCodecTest.java" result="NOOP"/>
+        <file path="src/test/java/org/openmrs/module/chwsync/api/sync/codec/PatientCodecTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

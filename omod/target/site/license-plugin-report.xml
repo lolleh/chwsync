@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1792018971731">
+    <module artifactId="chwsync-omod" groupId="org.openmrs.module" version="1.0.0-SNAPSHOT"/>
+    <files>
+        <file path="src/main/java/org/openmrs/module/chwsync/web/controller/BaseSyncController.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/web/controller/ChwSyncRestExceptionHandler.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/web/controller/DeviceController.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/web/controller/ReferenceController.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/web/controller/SyncAuthController.java" result="NOOP"/>
+        <file path="src/main/java/org/openmrs/module/chwsync/web/controller/SyncController.java" result="NOOP"/>
+        <file path="src/main/resources/config.xml" result="NOOP"/>
+        <file path="src/main/resources/messages.properties" result="NOOP"/>
+        <file path="src/main/resources/webModuleApplicationContext.xml" result="NOOP"/>
+        <file path="src/main/webapp/resources/owa/app.css" result="NOOP"/>
+        <file path="src/main/webapp/resources/owa/js/api.js" result="NOOP"/>
+        <file path="src/main/webapp/resources/owa/js/app.js" result="NOOP"/>
+        <file path="src/main/webapp/resources/owa/js/db.js" result="NOOP"/>
+        <file path="src/main/webapp/resources/owa/js/format.js" result="NOOP"/>
+        <file path="src/main/webapp/resources/owa/js/sync.js" result="NOOP"/>
+        <file path="src/main/webapp/resources/owa/sw.js" result="NOOP"/>
+    </files>
+</licensePluginReport>

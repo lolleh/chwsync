@@ -1,0 +1,33 @@
+R_DEF: Internal format may change without notice
+local
+color chwsync_background
+color chwsync_error
+color chwsync_on_primary
+color chwsync_primary
+color chwsync_primary_dark
+color chwsync_secondary
+color chwsync_surface
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+mipmap ic_launcher
+string action_cancel
+string action_delete
+string action_logout
+string action_save
+string action_sync_now
+string app_name
+string login_button
+string login_password
+string login_server
+string login_title
+string login_username
+string nav_appointments
+string nav_households
+string nav_patients
+string nav_referrals
+string nav_sync
+string status_offline
+string status_online
+string status_pending
+style Theme.ChwSync
+xml network_security_config

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">OpenMRS CHW</string>
+
+    <string name="login_title">Sign in</string>
+    <string name="login_server">Server URL</string>
+    <string name="login_username">Username</string>
+    <string name="login_password">Password</string>
+    <string name="login_button">Sign in</string>
+
+    <string name="nav_patients">Patients</string>
+    <string name="nav_households">Households</string>
+    <string name="nav_appointments">Appointments</string>
+    <string name="nav_referrals">Referrals</string>
+    <string name="nav_sync">Sync</string>
+
+    <string name="status_online">Online</string>
+    <string name="status_offline">Offline</string>
+    <string name="status_pending">%1$d pending</string>
+
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_sync_now">Sync now</string>
+    <string name="action_logout">Log out</string>
+</resources>

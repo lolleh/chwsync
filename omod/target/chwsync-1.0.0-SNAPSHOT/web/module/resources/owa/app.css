@@ -1,0 +1,193 @@
+/*
+ * This Source Code Form is subject to the terms of the Mozilla Public License,
+ * v. 2.0. If a copy of the MPL was not distributed with this file, You can
+ * obtain one at http://mozilla.org/MPL/2.0/. OpenMRS is also distributed under
+ * the terms of the Healthcare Disclaimer located at http://openmrs.org/license.
+ *
+ * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
+ * graphic logo is a trademark of OpenMRS Inc.
+ */
+:root {
+	--teal: #00695c;
+	--teal-dark: #004d40;
+	--teal-light: #e0f2f1;
+	--bg: #f4f6f7;
+	--card: #ffffff;
+	--text: #21272b;
+	--muted: #6b7780;
+	--line: #dde3e6;
+	--danger: #c62828;
+	--warn: #ef6c00;
+	--ok: #2e7d32;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	background: var(--bg);
+	color: var(--text);
+	font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	font-size: 16px;
+}
+
+body { display: flex; flex-direction: column; min-height: 100vh; }
+
+header.appbar {
+	background: var(--teal);
+	color: #fff;
+	padding: 12px 16px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: sticky;
+	top: 0;
+	z-index: 20;
+}
+
+header.appbar h1 { font-size: 1.05rem; margin: 0; font-weight: 600; }
+header.appbar .status { font-size: 0.75rem; opacity: 0.9; }
+header.appbar .status.offline { color: #ffcc80; }
+header.appbar .status.pending { color: #fff59d; }
+
+main { flex: 1; padding: 12px; max-width: 760px; width: 100%; margin: 0 auto; }
+
+nav.tabs {
+	display: flex;
+	gap: 4px;
+	background: var(--card);
+	border-bottom: 1px solid var(--line);
+	overflow-x: auto;
+	position: sticky;
+	top: 52px;
+	z-index: 15;
+}
+
+nav.tabs button {
+	flex: 1 0 auto;
+	border: none;
+	background: none;
+	padding: 12px 14px;
+	font-size: 0.85rem;
+	color: var(--muted);
+	border-bottom: 3px solid transparent;
+	cursor: pointer;
+}
+
+nav.tabs button.active { color: var(--teal); border-bottom-color: var(--teal); font-weight: 600; }
+
+.card {
+	background: var(--card);
+	border: 1px solid var(--line);
+	border-radius: 10px;
+	padding: 14px;
+	margin-bottom: 12px;
+}
+
+.card h2 { margin: 0 0 8px; font-size: 1rem; }
+.card .sub { color: var(--muted); font-size: 0.8rem; }
+
+.list-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	padding: 12px 4px;
+	border-bottom: 1px solid var(--line);
+	cursor: pointer;
+}
+
+.list-item:last-child { border-bottom: none; }
+.list-item .title { font-weight: 600; }
+.list-item .meta { color: var(--muted); font-size: 0.78rem; }
+.list-item .flag { font-size: 0.7rem; padding: 2px 6px; border-radius: 6px; }
+.flag.dirty { background: #fff3e0; color: var(--warn); }
+.flag.synced { background: var(--teal-light); color: var(--teal); }
+.flag.conflict { background: #ffebee; color: var(--danger); }
+
+button, .btn {
+	font: inherit;
+	border: none;
+	border-radius: 8px;
+	padding: 10px 14px;
+	background: var(--teal);
+	color: #fff;
+	cursor: pointer;
+}
+
+button.secondary { background: #fff; color: var(--teal); border: 1px solid var(--teal); }
+button.ghost { background: transparent; color: var(--muted); }
+button.danger { background: var(--danger); }
+button:disabled { opacity: 0.5; cursor: default; }
+
+.toolbar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+
+label { display: block; font-size: 0.8rem; color: var(--muted); margin: 10px 0 4px; }
+input, select, textarea {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid var(--line);
+	border-radius: 8px;
+	font: inherit;
+	background: #fff;
+}
+textarea { min-height: 70px; }
+
+.row { display: flex; gap: 10px; }
+.row > * { flex: 1; }
+
+.modal-backdrop {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.45);
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	z-index: 40;
+}
+
+.modal {
+	background: var(--card);
+	width: 100%;
+	max-width: 640px;
+	max-height: 92vh;
+	overflow-y: auto;
+	border-radius: 16px 16px 0 0;
+	padding: 16px;
+}
+
+.modal h2 { margin-top: 0; }
+.modal .actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 16px; }
+
+.toast {
+	position: fixed;
+	left: 50%;
+	bottom: 20px;
+	transform: translateX(-50%);
+	background: #263238;
+	color: #fff;
+	padding: 10px 16px;
+	border-radius: 8px;
+	z-index: 60;
+	max-width: 90vw;
+	font-size: 0.85rem;
+}
+
+.toast.error { background: var(--danger); }
+
+.empty { color: var(--muted); text-align: center; padding: 32px 8px; font-size: 0.9rem; }
+
+.badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 0.72rem; background: var(--teal-light); color: var(--teal); }
+.badge.high { background: #ffebee; color: var(--danger); }
+.badge.medium { background: #fff3e0; color: var(--warn); }
+
+.obs-row { display: flex; gap: 10px; align-items: flex-end; margin-bottom: 8px; }
+.obs-row .obs-concept { flex: 2; }
+.obs-row .obs-value { flex: 1; }
+.obs-row button { padding: 8px 10px; }
+
+@media (max-width: 480px) {
+	.row { flex-direction: column; }
+}

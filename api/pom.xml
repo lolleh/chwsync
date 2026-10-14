@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.openmrs.module</groupId>
+		<artifactId>chwsync</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>chwsync-api</artifactId>
+	<packaging>jar</packaging>
+	<name>CHW Sync API</name>
+	<description>API project for CHW</description>
+
+	<dependencies>
+
+		<!-- Begin OpenMRS core -->
+		<dependency>
+			<groupId>org.openmrs.api</groupId>
+			<artifactId>openmrs-api</artifactId>
+			<type>jar</type>
+		</dependency>
+
+		<dependency>
+			<groupId>org.openmrs.api</groupId>
+			<artifactId>openmrs-api</artifactId>
+			<type>test-jar</type>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.openmrs.test</groupId>
+			<artifactId>openmrs-test</artifactId>
+			<type>pom</type>
+			<scope>test</scope>
+		</dependency>
+		<!-- End OpenMRS core -->
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+
+		<!--
+			Compile-only sight of the event module's API, used to capture every change to core
+			patient/encounter/visit/obs rows so the sync feed is authoritative. The artifact is not
+			published to the module Maven repositories, so it is vendored in ../lib and the running
+			server supplies the classes from the installed event module (a required module, see
+			config.xml). Same approach the clinicreporting module takes for reporting-api.
+		-->
+		<dependency>
+			<groupId>org.openmrs</groupId>
+			<artifactId>event-api</artifactId>
+			<version>4.0.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/../lib/event-api-4.0.0.jar</systemPath>
+		</dependency>
+
+		<!--
+			The event module hands listeners a javax.jms.Message, so the JMS API has to be visible at
+			compile time. It is provided, not bundled: the running server already supplies it from the
+			event module's own lib folder.
+		-->
+		<dependency>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-jms_1.1_spec</artifactId>
+			<version>1.1.1</version>
+			<scope>provided</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<filtering>true</filtering>
+			</testResource>
+		</testResources>
+	</build>
+
+</project>

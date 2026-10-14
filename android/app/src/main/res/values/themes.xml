@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      We don't depend on the Material Components XML library, only Compose Material3,
+      so the platform Material theme is used as the base to avoid an extra dependency.
+    -->
+    <style name="Theme.ChwSync" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/chwsync_background</item>
+        <item name="android:statusBarColor">@color/chwsync_primary_dark</item>
+        <item name="android:colorPrimary">@color/chwsync_primary</item>
+        <item name="android:colorPrimaryDark">@color/chwsync_primary_dark</item>
+        <item name="android:colorAccent">@color/chwsync_secondary</item>
+    </style>
+</resources>

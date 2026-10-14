@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="chwsync_background">#F5F7F5</color>
+    <color name="chwsync_error">#B00020</color>
+    <color name="chwsync_on_primary">#FFFFFF</color>
+    <color name="chwsync_primary">#1B5E20</color>
+    <color name="chwsync_primary_dark">#0D3B12</color>
+    <color name="chwsync_secondary">#00695C</color>
+    <color name="chwsync_surface">#FFFFFF</color>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_logout">Log out</string>
+    <string name="action_save">Save</string>
+    <string name="action_sync_now">Sync now</string>
+    <string name="app_name">OpenMRS CHW</string>
+    <string name="login_button">Sign in</string>
+    <string name="login_password">Password</string>
+    <string name="login_server">Server URL</string>
+    <string name="login_title">Sign in</string>
+    <string name="login_username">Username</string>
+    <string name="nav_appointments">Appointments</string>
+    <string name="nav_households">Households</string>
+    <string name="nav_patients">Patients</string>
+    <string name="nav_referrals">Referrals</string>
+    <string name="nav_sync">Sync</string>
+    <string name="status_offline">Offline</string>
+    <string name="status_online">Online</string>
+    <string name="status_pending">%1$d pending</string>
+    <style name="Theme.ChwSync" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/chwsync_background</item>
+        <item name="android:statusBarColor">@color/chwsync_primary_dark</item>
+        <item name="android:colorPrimary">@color/chwsync_primary</item>
+        <item name="android:colorPrimaryDark">@color/chwsync_primary_dark</item>
+        <item name="android:colorAccent">@color/chwsync_secondary</item>
+    </style>
+</resources>

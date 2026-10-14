@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="chwsync_primary">#1B5E20</color>
+    <color name="chwsync_primary_dark">#0D3B12</color>
+    <color name="chwsync_secondary">#00695C</color>
+    <color name="chwsync_background">#F5F7F5</color>
+    <color name="chwsync_surface">#FFFFFF</color>
+    <color name="chwsync_on_primary">#FFFFFF</color>
+    <color name="chwsync_error">#B00020</color>
+</resources>
