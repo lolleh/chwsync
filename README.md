@@ -91,12 +91,20 @@ the classes come from the installed event module.
 
 ## Installing
 
-1. Copy `omod/target/chwsync-1.0.0-SNAPSHOT.omod` into your OpenMRS modules directory
-   (`~/.OpenMRS/modules` or `<appdata>/modules`).
-2. Ensure `event-4.0.0.omod` (or newer) is present too.
-3. Restart OpenMRS. The module runs its Liquibase changesets on first start.
+### Download / Build
 
-The PWA is then available at:
+- Build from source: see [Building](#building) to produce `omod/target/chwsync-1.0.0-SNAPSHOT.omod`.
+- Or download the `.omod` from the [releases page](https://github.com/lolleh/chwsync/releases) if available.
+
+### Steps
+
+1. Copy `omod/target/chwsync-1.0.0-SNAPSHOT.omod` (or the downloaded `.omod`) into your OpenMRS modules directory (`~/.OpenMRS/modules` or `<appdata>/modules`).
+2. Ensure the [Event module](https://github.com/openmrs/openmrs-module-event) `4.0.0+` is installed in the same modules directory.
+3. Restart OpenMRS. The module will run its Liquibase changesets on first start.
+4. Assign the required privileges (`Sync CHW Data` and/or `Manage CHW Devices`) to the roles that need them (see [Privileges](#privileges-assign-via-roles)).
+5. Verify the REST endpoint is reachable: `GET <context>/ws/chwsync/v1/manifest` (no auth).
+
+The PWA is available at:
 
 ```
 <context>/moduleResources/chwsync/owa/index.html
